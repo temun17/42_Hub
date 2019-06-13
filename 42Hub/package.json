@@ -4,7 +4,12 @@
   "description": "42 Social Network",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "build-css": "node-sass-chokidar ./src -o ./src",
+    "watch-css": "npm run build-css && node-sass-chokidar ./src -o ./src --watch --recursive",
+    "start-js": "react-scripts start",
+    "build-js": "react-scripts build",
+    "start": "npm run-all",
+    "build": "npm-run-all build-css build-js",
     "server": "nodemon server"
   },
   "author": "Allen Temunovic",
@@ -17,6 +22,8 @@
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.11",
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2",
     "request": "^2.88.0"
   },
   "devDependencies": {
